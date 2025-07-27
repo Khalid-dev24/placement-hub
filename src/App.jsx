@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; // ← import Helmet
+import { Helmet } from 'react-helmet-async';
 import Home from './components/Home';
 import Courses from './components/Courses';
 import About from './components/About';
@@ -26,10 +26,8 @@ function App() {
           `}
         </script>
         <noscript>
-          <img height="1" width="1" style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=24887957034196748&ev=PageView&noscript=1"
-            alt=""
-          />
+          {`<img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=24887957034196748&ev=PageView&noscript=1" alt="" />`}
         </noscript>
       </Helmet>
 
