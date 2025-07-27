@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
-
+import "../responsiveness.css";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-            <svg width="176" height="53" viewBox="0 0 176 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Logo */}
+        <svg width="176" height="53" viewBox="0 0 176 53" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1985_349)">
             <path d="M11.7628 -0.000466712C8.77278 0.0404746 5.90781 1.17211 3.73606 3.17C1.56432 5.16789 0.244434 7.88612 0.0381732 10.7856H0V27.5874C0 29.2574 0.682557 30.859 1.89752 32.0399C3.11248 33.2207 4.76032 33.8841 6.47853 33.8841H11.7628C11.8047 33.8841 11.845 33.8679 11.8746 33.8391C11.9043 33.8103 11.9209 33.7712 11.9209 33.7304V23.3207C11.9209 23.2806 11.9373 23.2422 11.9664 23.2139C11.9956 23.1856 12.0351 23.1696 12.0763 23.1696C13.6493 23.1609 15.2049 22.8498 16.6536 22.2541C18.1022 21.6584 19.4152 20.7899 20.517 19.6987C21.6187 18.6075 22.4873 17.3152 23.0728 15.8963C23.6584 14.4773 23.9491 12.9598 23.9285 11.4311C23.9078 9.90237 23.576 8.39277 22.9523 6.98927C22.3286 5.58577 21.4253 4.31611 20.2944 3.25348C19.1635 2.19084 17.8274 1.35624 16.3632 0.797772C14.8989 0.239304 13.3354 -0.0319871 11.7628 -0.000466712Z" fill="#3E1D67"/>
             <path d="M6.14045 30.0818C7.12205 31.0994 8.47447 29.8168 7.42471 30.7708C6.92129 31.2289 6.25133 31.4739 5.56211 31.452C4.87288 31.4302 4.22079 31.1432 3.74918 30.6542C2.76758 29.6339 2.48947 28.3353 3.53923 27.3813C4.58899 26.4272 5.15886 29.0641 6.14045 30.0818Z" fill="#FAFAFA"/>
@@ -29,21 +32,40 @@ function Navbar() {
             </clipPath>
             </defs>
             </svg>
-       </div>
-       
-        <ul className="navbar-links">
-          <li><a href="#home">Courses</a></li>
-          <li><a href="#about">Platform</a></li>
-          <li><a href="#contact">About</a></li>
+      </div>
+
+      {/* Hamburger Icon */}
+      <button
+        className={`hamburger${menuOpen ? " open" : ""}`}
+        onClick={() => setMenuOpen((prev) => !prev)}
+        aria-label="Toggle menu"
+      >
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </button>
+
+      {/* Nav Links */}
+        <ul className={`navbar-links${menuOpen ? " open" : ""}`}>
+          <li><a href="/">Home</a></li>
+          <li><a href="/courses">Courses</a></li>
+          <li><a href="#about">Placement</a></li>
+          <li><a href="/about">About</a></li>
+          <li className="no-display"><a href="https://blog.placement-hub.com/">Blog</a></li>
+          <li>
+            <button className="nav-btn no-display"><a href="/contact">Contact Us</a></button>
+          </li>
         </ul>
 
-      <div className="right">
-        <p>Blog</p>
-        <button className="nav-btn">Contact Us</button>
-      </div>
+        <div className="right">
+          <p><a href="https://blog.placement-hub.com/"></a>Blog</p>
+          <button className="nav-btn"><a href="/contact">Contact Us</a></button>
+        </div>
     </nav>
   );
-};
+}
 
 
 export default Navbar;
+
+

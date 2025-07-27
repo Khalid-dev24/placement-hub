@@ -36,10 +36,10 @@ function Transform() {
                     <p>Mentorship</p>
                 </div>
             </div>
-            <button className="transform-btn">View all Courses</button>
+            <button className="transform-btn"><a href="/courses">View all Courses</a></button>
         </div>
 
-        <div className="rightside">
+        <div className="right">
             <img src={TansformImg} alt="Transform" />
         </div>
       
